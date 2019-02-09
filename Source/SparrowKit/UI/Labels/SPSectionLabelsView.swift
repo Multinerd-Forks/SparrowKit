@@ -30,19 +30,19 @@ public class SPSectionLabelsView: SPView {
     override func commonInit() {
         super.commonInit()
         
-        self.titleLabel.font = UIFont.system(type: .Bold, size: 23)
+        self.titleLabel.font = UIFont.system(weight: .bold, size: 23)
         self.titleLabel.textAlignment = .left
         self.titleLabel.textColor = UIColor.black
         self.titleLabel.numberOfLines = 0
         self.addSubview(self.titleLabel)
         
-        self.subtitleLabel.font = UIFont.system(type: .Regular, size: 17)
+        self.subtitleLabel.font = UIFont.system(weight: .regular, size: 17)
         self.subtitleLabel.textAlignment = .left
         self.subtitleLabel.textColor = UIColor.black.withAlphaComponent(0.7)
         self.subtitleLabel.numberOfLines = 0
         self.addSubview(self.subtitleLabel)
         
-        self.button.titleLabel?.font = UIFont.system(type: .Regular, size: 17)
+        self.button.titleLabel?.font = UIFont.system(weight: .regular, size: 17)
         self.button.setTitleColor(SPNativeColors.blue, for: UIControl.State.normal)
         self.addSubview(self.button)
     }

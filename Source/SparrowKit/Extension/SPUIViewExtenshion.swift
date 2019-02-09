@@ -108,15 +108,15 @@ public extension UIView {
         )
     }
     
-    public func setYCenteringFromSuperview() {
+    public func setYCenter() {
         self.center.y = (self.superview?.frame.height ?? 0) / 2
     }
     
-    public func setXCenteringFromSuperview() {
+    public func setXCenter() {
         self.center.x = (self.superview?.frame.width ?? 0) / 2
     }
     
-    public func setToCenterInSuperview() {
+    public func setToCenter() {
         self.center = CGPoint.init(x: ((self.superview?.frame.width) ?? 0) / 2, y: ((self.superview?.frame.height) ?? 0) / 2)
     }
 }

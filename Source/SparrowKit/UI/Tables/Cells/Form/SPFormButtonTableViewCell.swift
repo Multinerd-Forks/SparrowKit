@@ -46,7 +46,7 @@ public class SPFormButtonTableViewCell: UITableViewCell {
         self.button.setTitle("Button", for: .normal)
         self.button.backgroundColor = UIColor.clear
         self.button.setTitleColor(SPNativeColors.blue)
-        self.button.titleLabel?.font = UIFont.system(type: .Medium, size: 17)
+        self.button.titleLabel?.font = UIFont.system(weight: .medium, size: 17)
         self.selectionStyle = .none
         self.contentView.addSubview(self.button)
     }

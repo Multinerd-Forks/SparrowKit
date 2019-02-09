@@ -39,13 +39,13 @@ class SPEmptyTitlesView: SPView {
     override func commonInit() {
         super.commonInit()
         
-        self.titleLabel.font = UIFont.system(type: .Bold, size: 29)
+        self.titleLabel.font = UIFont.system(weight: .bold, size: 29)
         self.titleLabel.textColor = SPNativeColors.gray
         self.titleLabel.setCenteringAlignment()
         self.titleLabel.numberOfLines = 0
         self.addSubview(self.titleLabel)
         
-        self.subtitleLabel.font = UIFont.system(type: .Regular, size: 17)
+        self.subtitleLabel.font = UIFont.system(weight: .regular, size: 17)
         self.subtitleLabel.textColor = SPNativeColors.gray
         self.subtitleLabel.setCenteringAlignment()
         self.subtitleLabel.numberOfLines = 0

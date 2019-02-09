@@ -21,16 +21,20 @@
 
 import UIKit
 
-public class SPFormLabelTableViewCell: SPTableViewCell {
+public class SPFormTextInputTableViewCell: SPTableViewCell {
     
-    let label: UILabel = UILabel()
-    let descriptionLabel: UILabel = UILabel()
+    let textInputView: UITextView = UITextView()
+
+    var textInputViewHeight: CGFloat = 150 {
+        didSet {
+            self.textInputViewHeightConstraint.constant = self.textInputViewHeight
+        }
+    }
     
-    var fixWidthLabel: CGFloat? = nil
-    var onlyLeftLabel: Bool = false
+    private var textInputViewHeightConstraint: NSLayoutConstraint!
     
     override var contentViews: [UIView] {
-        return [self.descriptionLabel]
+        return [self.textInputView]
     }
     
     override public var accessoryType: UITableViewCell.AccessoryType {
@@ -55,21 +59,24 @@ public class SPFormLabelTableViewCell: SPTableViewCell {
     
     private func commonInit() {
         self.backgroundColor = UIColor.white
-        self.label.textAlignment = .left
-        self.label.text = "Title"
-        self.label.numberOfLines = 1
-        self.label.font = UIFont.system(type: .Regular, size: 17)
-        self.contentView.addSubview(self.label)
+        self.textInputView.textAlignment = .left
+        self.textInputView.text = ""
+        self.textInputView.font = UIFont.system(weight: .regular, size: 17)
+        self.textInputView.translatesAutoresizingMaskIntoConstraints = false
+        self.textInputView.showsVerticalScrollIndicator = false
+        self.contentView.addSubview(self.textInputView)
         
-        self.descriptionLabel.textAlignment = .right
-        self.descriptionLabel.text = "Description"
-        self.descriptionLabel.numberOfLines = 1
-        self.descriptionLabel.font = UIFont.system(type: .Regular, size: 17)
-        self.descriptionLabel.textColor = SPNativeColors.gray
-        self.contentView.addSubview(self.descriptionLabel)
-
+        let marginGuide = contentView.layoutMarginsGuide
+        
+        self.textInputView.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
+        self.textInputView.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor).isActive = true
+        self.textInputView.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
+        self.textInputView.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor).isActive = true
+        
+        self.textInputViewHeightConstraint = self.textInputView.heightAnchor.constraint(equalToConstant: self.textInputViewHeight)
+        self.textInputViewHeightConstraint.isActive = true
+        
         self.stopLoading(animated: false)
-        
         self.separatorInsetStyle = .auto
         self.accessoryType = .none
     }
@@ -77,11 +84,7 @@ public class SPFormLabelTableViewCell: SPTableViewCell {
     override public func prepareForReuse() {
         super.prepareForReuse()
         self.accessoryType = .none
-        self.label.text = "Title"
-        self.descriptionLabel.text = "Description"
-        self.separatorInsetStyle = .auto
-        self.onlyLeftLabel = false
-        self.fixWidthLabel = nil
+        self.textInputView.text = ""
     }
     
     override public func layoutSubviews() {
@@ -89,30 +92,11 @@ public class SPFormLabelTableViewCell: SPTableViewCell {
         
         let xPosition: CGFloat = (self.imageView?.frame.bottomXPosition ?? 0) + self.layoutMargins.left
         
-        var labelWidth: CGFloat = self.contentView.frame.width * 0.45
-        if let width = self.fixWidthLabel {
-            labelWidth = width
-        } else {
-            self.label.sizeToFit()
-            labelWidth = self.label.frame.width
-        }
-        
-        self.label.frame = CGRect.init(x: xPosition, y: 0, width: labelWidth, height: self.contentView.frame.height)
-        
-        let space: CGFloat = 15
-        self.descriptionLabel.frame = CGRect.init(
-            x: self.label.frame.bottomXPosition + space,
-            y: 0,
-            width: self.contentView.frame.width - self.label.frame.bottomXPosition -
-                self.contentView.layoutMargins.right - space,
-            height: self.contentView.frame.height)
-
-        if onlyLeftLabel {
-            self.label.frame = CGRect.init(x: xPosition, y: 0, width: self.frame.width - self.layoutMargins.left - self.layoutMargins.right, height: self.contentView.frame.height)
-            self.descriptionLabel.isHidden = true
-        } else {
-            self.descriptionLabel.isHidden = false
-        }
+        self.textInputView.frame = CGRect.init(
+            x: xPosition, y: 0,
+            width: self.frame.width - self.layoutMargins.left - self.layoutMargins.right,
+            height: self.contentView.frame.height
+        )
         
         switch self.separatorInsetStyle {
         case .all:

@@ -89,7 +89,7 @@ public class SPDotButton: SPButton {
         for dotView in self.dotsView {
             dotView.setWidth(sideSize)
             dotView.setHeight(sideSize)
-            dotView.setYCenteringFromSuperview()
+            dotView.setYCenter()
             dotView.frame.origin.x = currentXPosition
             dotView.round()
             currentXPosition += (sideSize + space)

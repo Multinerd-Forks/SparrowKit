@@ -44,7 +44,7 @@ public class SPNativeLargeButton: SPDownloadingButton {
     
     override public func commonInit() {
         super.commonInit()
-        self.titleLabel?.font = UIFont.system(type: UIFont.BoldType.DemiBold, size: 16)
+        self.titleLabel?.font = UIFont.system(weight: UIFont.FontWeight.demiBold, size: 16)
         self.setTitleColor(UIColor.white)
         self.backgroundColor = SPNativeColors.blue
         self.layer.masksToBounds = true

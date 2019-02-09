@@ -60,10 +60,10 @@ public class SPFormTextFiledTableViewCell: UITableViewCell {
         self.backgroundColor = UIColor.white
         
         self.label.text = "Label"
-        self.label.font = UIFont.system(type: .Regular, size: 17)
+        self.label.font = UIFont.system(weight: .regular, size: 17)
         self.contentView.addSubview(self.label)
         
-        self.textField.font = UIFont.system(type: .Regular, size: 17)
+        self.textField.font = UIFont.system(weight: .regular, size: 17)
         self.textField.placeholder = "Placeholder"
         self.contentView.addSubview(self.textField)
         

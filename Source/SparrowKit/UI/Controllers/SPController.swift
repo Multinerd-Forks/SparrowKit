@@ -29,6 +29,10 @@ public class SPController: SPStatusBarManagerController {
         super.viewDidLoad()
         self.emptyTitlesView.isHidden = true
         self.view.addSubview(self.emptyTitlesView)
+    }
+    
+    public override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
         self.updateLayout(with: self.view.frame.size)
     }
     
@@ -37,12 +41,6 @@ public class SPController: SPStatusBarManagerController {
         coordinator.animate(alongsideTransition: { (contex) in
             self.updateLayout(with: size)
         }, completion: nil)
-    }
-    
-    @available(iOS 11.0, *)
-    override public func viewLayoutMarginsDidChange() {
-        super.viewLayoutMarginsDidChange()
-        self.updateLayout(with: self.view.frame.size)
     }
     
     func updateLayout(with size: CGSize) {

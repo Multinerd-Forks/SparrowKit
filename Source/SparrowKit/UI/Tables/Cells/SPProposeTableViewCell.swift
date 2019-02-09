@@ -35,7 +35,7 @@ public class SPProposeTableViewCell: UITableViewCell {
         self.addSubview(self.button)
         self.button.setTitle("Action", for: .normal)
         
-        self.button.titleLabel?.font = UIFont.system(type: .DemiBold, size: 14)
+        self.button.titleLabel?.font = UIFont.system(weight: .demiBold, size: 14)
         self.button.titleLabel?.numberOfLines = 0
         self.button.secondColor = SPNativeColors.blue
         self.button.baseColor = UIColor.white
@@ -50,7 +50,7 @@ public class SPProposeTableViewCell: UITableViewCell {
         self.titleLabel.numberOfLines = 0
         self.titleLabel.setCenteringAlignment()
         self.titleLabel.textAlignment = .left
-        self.titleLabel.font = UIFont.system(type: .Regular, size: 16)
+        self.titleLabel.font = UIFont.system(weight: .regular, size: 16)
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
         self.titleLabel.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor).isActive = true
         self.titleLabel.topAnchor.constraint(equalTo: marginGuide.topAnchor, constant: 0).isActive = true

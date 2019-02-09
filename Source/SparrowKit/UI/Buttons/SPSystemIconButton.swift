@@ -24,12 +24,13 @@ import UIKit
 public class SPSystemIconButton: UIButton {
     
     let iconView = SPSystemIconView.init()
+    
     var widthIconFactor: CGFloat = 1
     var heightIconFactor: CGFloat = 1
     
-    var type: SPSystemIconType {
+    var icon: SPSystemIcon {
         didSet {
-            self.iconView.type = self.type
+            self.iconView.icon = self.icon
         }
     }
     
@@ -50,16 +51,16 @@ public class SPSystemIconButton: UIButton {
     }
     
     init() {
-        self.type = .share
+        self.icon = .share
         super.init(frame: CGRect.zero)
         self.commonInit()
     }
     
-    init(type: SPSystemIconType) {
-        self.type = type
+    init(type: SPSystemIcon) {
+        self.icon = type
         super.init(frame: CGRect.zero)
-        self.iconView.type = self.type
-        self.type = type
+        self.iconView.icon = self.icon
+        self.icon = type
         self.commonInit()
     }
     

@@ -70,6 +70,10 @@ extension String {
         return false
     }
     
+    public var isEmpty: Bool {
+        return (self.removeAllSpaces() == "")
+    }
+    
     public mutating func replace(_ replacingString: String, with newString: String) {
         self = self.replacingOccurrences(of: replacingString, with: newString)
     }

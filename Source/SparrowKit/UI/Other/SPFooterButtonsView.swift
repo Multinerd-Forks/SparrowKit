@@ -104,7 +104,7 @@ class SPFooterActionButton: SPButton {
     override func commonInit() {
         super.commonInit()
         self.setTitleColor(SPNativeColors.blue)
-        self.titleLabel?.font = UIFont.system(type: .Regular, size: 21)
+        self.titleLabel?.font = UIFont.system(weight: .regular, size: 21)
         self.contentHorizontalAlignment = .left
     }
     
