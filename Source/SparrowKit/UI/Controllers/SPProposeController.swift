@@ -237,7 +237,7 @@ public class SPProposeController: SPController {
             super.layoutSubviews()
             
             self.titleLabel.sizeToFit()
-            self.titleLabel.frame.origin.y = self.space * 0.8
+            self.titleLabel.frame.origin.y = self.space * 0.9
             self.titleLabel.setWidth(self.frame.width - self.space * 3)
             self.titleLabel.setXCenter()
             
