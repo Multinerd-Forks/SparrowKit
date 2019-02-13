@@ -58,13 +58,13 @@ public class SPNativeLargeButton: SPDownloadingButton {
             let sideSpace: CGFloat = superview.frame.width * 0.112
             var width = superview.frame.width - sideSpace * 2
             width.setIfMore(when: 335)
-            self.setWidth(width)
+            self.frame.set(width: width)
         }
     }
     
     override public func layoutSubviews() {
         super.layoutSubviews()
-        self.gradientView?.setEqualsBoundsFromSuperview()
+        self.gradientView?.setSuperviewBounds()
         self.gradientView?.layer.cornerRadius = self.layer.cornerRadius
         self.gradientView?.gradientLayer.cornerRadius = self.layer.cornerRadius
     }

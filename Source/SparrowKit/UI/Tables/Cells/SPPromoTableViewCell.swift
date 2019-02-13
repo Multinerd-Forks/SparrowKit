@@ -50,9 +50,9 @@ public class SPPromoTableViewCell: SPBaseContentTableViewCell {
         self.bottomSpace = 22
         
         self.titleLabel.font = UIFont.system(weight: .demiBold, size: 16)
-        self.titleLabel.setCenteringAlignment()
+        self.titleLabel.setCenterAlignment()
         self.descriptionLabel.font = UIFont.system(weight: .regular, size: 13)
-        self.descriptionLabel.setCenteringAlignment()
+        self.descriptionLabel.setCenterAlignment()
         self.subtitleLabel.textColor = UIColor.lightGray
         self.button.style = .main
     }

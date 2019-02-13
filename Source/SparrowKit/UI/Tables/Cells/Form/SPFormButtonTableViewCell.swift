@@ -60,7 +60,7 @@ public class SPFormButtonTableViewCell: UITableViewCell {
     
     override public func layoutSubviews() {
         super.layoutSubviews()
-        self.button.setEqualsBoundsFromSuperview()
+        self.button.setSuperviewBounds()
         
         switch self.separatorInsetStyle {
         case .all:

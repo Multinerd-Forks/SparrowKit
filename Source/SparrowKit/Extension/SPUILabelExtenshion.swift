@@ -42,7 +42,7 @@ public extension UILabel {
         self.setShadowOffsetForLetters(blurRadius: 0, widthOffset: 0, heightOffset: 0, opacity: 0)
     }
     
-    public func setCenteringAlignment() {
+    public func setCenterAlignment() {
         self.textAlignment = .center
         self.baselineAdjustment = .alignCenters
     }
@@ -54,7 +54,7 @@ public extension UILabel {
         }
     }
     
-    public func setLineSpacing(lineSpacing: CGFloat = 0.0, lineHeightMultiple: CGFloat = 0.0) {
+    public func setLineSpacing(_ lineSpacing: CGFloat = 0.0, lineHeightMultiple: CGFloat = 0.0) {
         
         guard let labelText = self.text else { return }
         

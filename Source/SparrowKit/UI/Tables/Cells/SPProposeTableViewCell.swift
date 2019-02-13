@@ -48,7 +48,7 @@ public class SPProposeTableViewCell: UITableViewCell {
         
         self.addSubview(self.titleLabel)
         self.titleLabel.numberOfLines = 0
-        self.titleLabel.setCenteringAlignment()
+        self.titleLabel.setCenterAlignment()
         self.titleLabel.textAlignment = .left
         self.titleLabel.font = UIFont.system(weight: .regular, size: 16)
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = false

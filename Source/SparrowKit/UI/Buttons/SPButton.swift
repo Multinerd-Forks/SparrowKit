@@ -54,7 +54,7 @@ public class SPButton: UIButton {
     
     override public func layoutSubviews() {
         super.layoutSubviews()
-        self.gradientView?.setEqualsBoundsFromSuperview()
+        self.gradientView?.setSuperviewBounds()
         if self.round {
             self.round()
         }

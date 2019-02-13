@@ -70,7 +70,7 @@ public class SPDownloadingImageView: SPImageView {
     
     override public func layoutSubviews() {
         super.layoutSubviews()
-        self.gradeView.setEqualsBoundsFromSuperview()
+        self.gradeView.setSuperviewBounds()
         self.activityIndiactorView.center = CGPoint.init(x: self.bounds.midX, y: self.bounds.midY)
     }
 }

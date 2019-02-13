@@ -23,7 +23,7 @@ import UIKit
 
 public class SPController: SPStatusBarManagerController {
     
-    let emptyTitlesView = SPEmptyTitlesView(title: "No Data", subtitle: "No data or information")
+    let emptyTitlesView = SPEmptyLabelsView(title: "No Data", subtitle: "No data or information")
     
     override public func viewDidLoad() {
         super.viewDidLoad()

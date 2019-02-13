@@ -202,13 +202,13 @@ public class SPProposeController: SPController {
             self.titleLabel.numberOfLines = 1
             self.titleLabel.adjustsFontSizeToFitWidth = true
             self.titleLabel.minimumScaleFactor = 0.5
-            self.titleLabel.setCenteringAlignment()
+            self.titleLabel.setCenterAlignment()
             self.addSubview(self.titleLabel)
             
             self.subtitleLabel.font = UIFont.system(weight: .regular, size: 16)
             self.subtitleLabel.textColor = SPNativeColors.black
             self.subtitleLabel.numberOfLines = 0
-            self.subtitleLabel.setCenteringAlignment()
+            self.subtitleLabel.setCenterAlignment()
             self.addSubview(self.subtitleLabel)
             
             self.imageView.gradeView.backgroundColor = UIColor.white
@@ -238,25 +238,25 @@ public class SPProposeController: SPController {
             
             self.titleLabel.sizeToFit()
             self.titleLabel.frame.origin.y = self.space * 0.9
-            self.titleLabel.setWidth(self.frame.width - self.space * 3)
+            self.titleLabel.frame.set(width: self.frame.width - self.space * 3)
             self.titleLabel.setXCenter()
             
             self.subtitleLabel.sizeToFit()
-            self.subtitleLabel.frame.origin.y = self.titleLabel.frame.bottomYPosition + 8
-            self.subtitleLabel.setWidth(self.frame.width - self.space * 2)
+            self.subtitleLabel.frame.origin.y = self.titleLabel.frame.bottomY + 8
+            self.subtitleLabel.frame.set(width: self.frame.width - self.space * 2)
             self.subtitleLabel.setXCenter()
             
             self.imageView.frame = CGRect.init(
-                x: 0, y: self.subtitleLabel.frame.bottomYPosition + self.space / 2,
+                x: 0, y: self.subtitleLabel.frame.bottomY + self.space / 2,
                 width: self.imageSideSize,
                 height: self.imageSideSize
             )
             self.imageView.setXCenter()
             
             self.button.sizeToFit()
-            self.button.setHeight(52)
-            self.button.setWidth(self.frame.width - self.space * 2)
-            self.button.frame.origin.y = self.imageView.frame.bottomYPosition + self.space / 1.8
+            self.button.frame.set(height: 52)
+            self.button.frame.set(width: self.frame.width - self.space * 2)
+            self.button.frame.origin.y = self.imageView.frame.bottomY + self.space / 1.8
             self.button.setXCenter()
             
             self.closeButton.frame = CGRect.init(x: 0, y: 0, width: 24, height: 24)
@@ -264,12 +264,12 @@ public class SPProposeController: SPController {
             self.closeButton.frame.origin.y = 20
             self.closeButton.round()
             
-            self.setHeight(self.button.frame.bottomYPosition + self.space)
+            self.frame.set(height: self.button.frame.bottomY + self.space)
         }
         
         func layout(origin: CGPoint, width: CGFloat) {
             self.frame.origin = origin
-            self.setWidth(width)
+            self.frame.set(width: width)
             self.layoutSubviews()
         }
     }

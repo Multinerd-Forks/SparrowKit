@@ -115,7 +115,7 @@ public class SPImageTableViewCell: SPTableViewCell {
     
     override public func layoutSubviews() {
         super.layoutSubviews()
-        self.accessoryView?.center.y = self.titleLabel.frame.bottomYPosition + self.subtitleLabel.frame.height / 2
+        self.accessoryView?.center.y = self.titleLabel.frame.bottomY + self.subtitleLabel.frame.height / 2
         if self.accessoryView?.frame.origin.y ?? 0 < 5 {
             self.accessoryView?.center.y = self.frame.height / 2
         }

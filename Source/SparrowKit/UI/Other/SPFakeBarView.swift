@@ -186,13 +186,13 @@ public class SPFakeBarView: UIView {
             }
             self.addStatusBarHeight = true
             self.titleLabel.font = UIFont.system(weight: .demiBold, size: 17)
-            self.titleLabel.setCenteringAlignment()
+            self.titleLabel.setCenterAlignment()
         case .stork:
             self.height = 66
             self.titleBottomConstraint?.constant = -12
             self.addStatusBarHeight = false
             self.titleLabel.font = UIFont.system(weight: .demiBold, size: 17)
-            self.titleLabel.setCenteringAlignment()
+            self.titleLabel.setCenterAlignment()
         case .large:
             if UIViewController.statusBarHeight == 44 {
                 self.height = 140 - 44

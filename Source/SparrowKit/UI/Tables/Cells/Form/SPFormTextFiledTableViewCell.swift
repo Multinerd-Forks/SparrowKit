@@ -79,7 +79,7 @@ public class SPFormTextFiledTableViewCell: UITableViewCell {
         }
         self.label.frame = CGRect.init(x: self.layoutMargins.left, y: 0, width: labelWidth, height: self.contentView.frame.height)
         let space: CGFloat = 15
-        self.textField.frame = CGRect.init(x: self.label.frame.bottomXPosition + space, y: 0, width: self.contentView.frame.width - self.label.frame.bottomXPosition - self.layoutMargins.right - space, height: self.contentView.frame.height)
+        self.textField.frame = CGRect.init(x: self.label.frame.bottomX + space, y: 0, width: self.contentView.frame.width - self.label.frame.bottomX - self.layoutMargins.right - space, height: self.contentView.frame.height)
         
         switch self.separatorInsetStyle {
         case .all:

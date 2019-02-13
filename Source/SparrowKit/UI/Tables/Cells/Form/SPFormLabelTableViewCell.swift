@@ -87,7 +87,7 @@ public class SPFormLabelTableViewCell: SPTableViewCell {
     override public func layoutSubviews() {
         super.layoutSubviews()
         
-        let xPosition: CGFloat = (self.imageView?.frame.bottomXPosition ?? 0) + self.layoutMargins.left
+        let xPosition: CGFloat = (self.imageView?.frame.bottomX ?? 0) + self.layoutMargins.left
         
         var labelWidth: CGFloat = self.contentView.frame.width * 0.45
         if let width = self.fixWidthLabel {
@@ -101,9 +101,9 @@ public class SPFormLabelTableViewCell: SPTableViewCell {
         
         let space: CGFloat = 15
         self.descriptionLabel.frame = CGRect.init(
-            x: self.label.frame.bottomXPosition + space,
+            x: self.label.frame.bottomX + space,
             y: 0,
-            width: self.contentView.frame.width - self.label.frame.bottomXPosition -
+            width: self.contentView.frame.width - self.label.frame.bottomX -
                 self.contentView.layoutMargins.right - space,
             height: self.contentView.frame.height)
 
@@ -119,7 +119,7 @@ public class SPFormLabelTableViewCell: SPTableViewCell {
             self.separatorInset.left = 0
         case .beforeImage:
             if let imageView = self.imageView {
-                self.separatorInset.left = imageView.frame.bottomYPosition + self.layoutMargins.left
+                self.separatorInset.left = imageView.frame.bottomY + self.layoutMargins.left
             } else {
                 self.separatorInset.left = 0
             }
