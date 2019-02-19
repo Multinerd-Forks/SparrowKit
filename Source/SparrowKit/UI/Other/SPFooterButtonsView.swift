@@ -36,8 +36,7 @@ public class SPFooterActionsView: SPView {
     
     func addButton(title: String, titleColor: UIColor, target: @escaping ()->()) {
         let button = SPFooterActionButton()
-        button.setTitle(title)
-        button.setTitleColor(titleColor)
+        button.setTitle(title, color: titleColor)
         button.target { target() }
         self.buttons.append(button)
         self.addSubview(button)

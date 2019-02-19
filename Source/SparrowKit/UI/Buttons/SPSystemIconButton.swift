@@ -21,7 +21,7 @@
 
 import UIKit
 
-public class SPSystemIconButton: UIButton {
+public class SPSystemIconButton: SPButton {
     
     let iconView = SPSystemIconView.init()
     
@@ -50,15 +50,15 @@ public class SPSystemIconButton: UIButton {
         }
     }
     
-    init() {
+    override init() {
         self.icon = .share
-        super.init(frame: CGRect.zero)
+        super.init()
         self.commonInit()
     }
     
     init(type: SPSystemIcon) {
         self.icon = type
-        super.init(frame: CGRect.zero)
+        super.init()
         self.iconView.icon = self.icon
         self.icon = type
         self.commonInit()
@@ -68,7 +68,8 @@ public class SPSystemIconButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    fileprivate func commonInit() {
+    override func commonInit() {
+        super.commonInit()
         self.iconView.isUserInteractionEnabled = false
         self.addSubview(self.iconView)
     }

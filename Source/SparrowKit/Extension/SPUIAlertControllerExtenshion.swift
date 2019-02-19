@@ -73,7 +73,7 @@ extension UIAlertController {
         }))
         ac.addAction(UIAlertAction.init(
             title: cancelButtonTitle,
-            style: UIAlertAction.Style.default,
+            style: UIAlertAction.Style.cancel,
             handler: { (action) in
                 complection(false)
         }))

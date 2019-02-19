@@ -33,7 +33,7 @@ public class SPDownloadingImageView: SPImageView {
         self.addSubview(self.gradeView)
         self.gradeView.backgroundColor = UIColor.init(hex: "F0F1F6")
         self.activityIndiactorView.color = UIColor.darkGray
-        self.addSubview(self.activityIndiactorView)
+        //self.addSubview(self.activityIndiactorView)
         self.activityIndiactorView.startAnimating()
     }
     

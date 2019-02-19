@@ -21,7 +21,7 @@
 
 import UIKit
 
-public class CenterLabelsView: SPView {
+public class SPCenterLabelsView: SPView {
     
     let titleLabel = SPLabel()
     let subtitleLabel = SPLabel()
@@ -42,23 +42,21 @@ public class CenterLabelsView: SPView {
         self.addSubview(self.subtitleLabel)
     }
     
-    func layout(origin: CGPoint, width: CGFloat) {
-        self.frame.origin = origin
+    func layout(x: CGFloat, y: CGFloat, width: CGFloat) {
+        self.frame.origin = CGPoint.init(x: x, y: y)
         self.frame.set(width: width)
         self.layoutSubviews()
-    }
-    
-    func layout(x: CGFloat, y: CGFloat, width: CGFloat) {
-        self.layout(origin: CGPoint.init(x: x, y: y), width: width)
     }
     
     override public func layoutSubviews() {
         super.layoutSubviews()
         
+        self.titleLabel.frame.set(width: self.frame.width)
         self.titleLabel.sizeToFit()
         self.titleLabel.frame.set(width: self.frame.width)
         self.titleLabel.frame.origin = CGPoint.zero
         
+        self.subtitleLabel.frame.set(width: self.frame.width)
         self.subtitleLabel.sizeToFit()
         self.subtitleLabel.frame.set(width: self.frame.width)
         self.subtitleLabel.frame.origin.x = 0
