@@ -42,7 +42,7 @@ public class SPCircleCloseButton: SPSystemIconButton {
         self.frame.origin.y = y
     }
     
-    override func sizeToFit() {
+    override public func sizeToFit() {
         super.sizeToFit()
         self.frame.set(width: 30)
         self.frame.set(height: 30)
