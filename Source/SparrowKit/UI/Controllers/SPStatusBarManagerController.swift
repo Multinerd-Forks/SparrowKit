@@ -127,11 +127,4 @@ public class SPStatusBarManagerNavigationController: UINavigationController {
     override public var prefersStatusBarHidden: Bool {
         return isHiddenStatusBar
     }
-    
-    public override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        UIView.animate(withDuration: 0.3) { () -> Void in
-            self.setNeedsStatusBarAppearanceUpdate()
-        }
-    }
 }

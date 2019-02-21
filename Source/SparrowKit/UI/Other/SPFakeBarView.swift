@@ -74,13 +74,14 @@ public class SPFakeBarView: UIView {
     public var leftButton = UIButton.init()
     public var rightButton = UIButton.init()
     
+    private let blurView = UIVisualEffectView.init(style: .extraLight)
+    private let separatorView = UIView()
+    
     private var titleBottomConstraint: NSLayoutConstraint?
     private var heightConstraint: NSLayoutConstraint?
     private var topConstraint: NSLayoutConstraint?
     private var leadingConstraint: NSLayoutConstraint?
     private var trailingConstraint: NSLayoutConstraint?
-    private let blurView = UIVisualEffectView.init(style: .extraLight)
-    private let separatorView = UIView()
     
     public init(style: SPNavigationTitleStyle) {
         super.init(frame: CGRect.zero)
