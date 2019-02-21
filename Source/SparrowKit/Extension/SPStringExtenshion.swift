@@ -70,7 +70,7 @@ extension String {
         return false
     }
     
-    public var isEmpty: Bool {
+    public var isEmptyContent: Bool {
         return (self.removeAllSpaces() == "")
     }
     
