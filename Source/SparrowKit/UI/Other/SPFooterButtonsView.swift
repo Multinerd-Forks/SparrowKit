@@ -59,6 +59,10 @@ public class SPFooterActionsView: SPView {
         self.layoutSubviews()
     }
     
+    func layout(y: CGFloat, width: CGFloat) {
+        self.layout(origin: CGPoint.init(x: 19, y: y), width: width)
+    }
+    
     override public func layoutSubviews() {
         super.layoutSubviews()
         

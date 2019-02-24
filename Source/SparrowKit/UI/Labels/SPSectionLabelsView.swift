@@ -60,12 +60,12 @@ public class SPSectionLabelsView: SPView {
     override public func layoutSubviews() {
         super.layoutSubviews()
         
-        self.titleLabel.sizeToFit()
         self.titleLabel.frame.set(width: self.frame.width)
+        self.titleLabel.sizeToFit()
         self.titleLabel.frame.origin = CGPoint.zero
         
-        self.subtitleLabel.sizeToFit()
         self.subtitleLabel.frame.set(width: self.frame.width)
+        self.subtitleLabel.sizeToFit()
         self.subtitleLabel.frame.origin.x = 0
         self.subtitleLabel.frame.origin.y = self.titleLabel.frame.bottomY + 3
         
