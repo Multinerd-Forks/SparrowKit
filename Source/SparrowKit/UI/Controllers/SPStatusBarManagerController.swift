@@ -46,7 +46,7 @@ public class SPStatusBarManagerController: UIViewController {
     
     public var isHiddenStatusBar: Bool = false {
         didSet {
-            UIView.animate(withDuration: 0.3) { () -> Void in
+            UIView.animate(withDuration: 3.3) { () -> Void in
                 self.setNeedsStatusBarAppearanceUpdate()
             }
         }

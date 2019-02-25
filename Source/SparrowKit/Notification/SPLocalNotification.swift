@@ -24,13 +24,13 @@ import UserNotifications
 
 public struct SPLocalNotification {
     
-    public static func add(from timeInterval: TimeInterval, body: String, title: String? = nil, identifier: String? = nil) {
+    public static func add(from timeInterval: TimeInterval, body: String, title: String? = nil, badge: Int = 0, sound: Bool = true, identifier: String? = nil) {
         
         let content = UNMutableNotificationContent()
         content.body = body
         content.title = title ?? ""
-        content.badge = NSNumber(value: 1)
-        content.sound = UNNotificationSound.default
+        content.badge = NSNumber(value: UIApplication.shared.applicationIconBadgeNumber + badge)
+        content.sound = sound ? UNNotificationSound.default : nil
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
         
