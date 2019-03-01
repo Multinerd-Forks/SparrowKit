@@ -25,7 +25,7 @@ public class SPStatusBarManagerController: UIViewController {
     
     var statusBar: SPStatusBar = .dark {
         didSet {
-            UIView.animate(withDuration: 0.3) { () -> Void in
+            UIView.animate(withDuration: self.statusBarAnimationDuration) { () -> Void in
                 self.setNeedsStatusBarAppearanceUpdate()
             }
         }
@@ -46,7 +46,7 @@ public class SPStatusBarManagerController: UIViewController {
     
     public var isHiddenStatusBar: Bool = false {
         didSet {
-            UIView.animate(withDuration: 3.3) { () -> Void in
+            UIView.animate(withDuration: self.statusBarAnimationDuration) { () -> Void in
                 self.setNeedsStatusBarAppearanceUpdate()
             }
         }
@@ -55,6 +55,8 @@ public class SPStatusBarManagerController: UIViewController {
     override public var prefersStatusBarHidden: Bool {
         return isHiddenStatusBar
     }
+    
+    public var statusBarAnimationDuration: TimeInterval = 0.3
 }
 
 public class SPStatusBarManagerTableController: UITableViewController {

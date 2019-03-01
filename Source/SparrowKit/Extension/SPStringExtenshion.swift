@@ -78,11 +78,24 @@ extension String {
         return components(separatedBy: .punctuationCharacters).joined().components(separatedBy: .whitespaces)
     }
     
+    public func removePrefix(_ prefix: String) -> String {
+        guard self.hasPrefix(prefix) else { return self }
+        return String(self.dropFirst(prefix.count))
+    }
+    
     public mutating func replace(_ replacingString: String, with newString: String) {
         self = self.replacingOccurrences(of: replacingString, with: newString)
     }
     
     public func replace(_ replacingString: String, with newString: String) -> String {
         return self.replacingOccurrences(of: replacingString, with: newString)
+    }
+    
+    public func slice(from: String, to: String) -> String? {
+        return (range(of: from)?.upperBound).flatMap { substringFrom in
+            (range(of: to, range: substringFrom..<endIndex)?.lowerBound).map { substringTo in
+                String(self[substringFrom..<substringTo])
+            }
+        }
     }
 }

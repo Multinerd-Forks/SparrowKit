@@ -24,22 +24,26 @@ import UserNotifications
 
 public struct SPLocalNotification {
     
-    public static func add(from timeInterval: TimeInterval, body: String, title: String? = nil, badge: Int = 0, sound: Bool = true, identifier: String? = nil) {
-        
-        let content = UNMutableNotificationContent()
-        content.body = body
-        content.title = title ?? ""
-        content.badge = NSNumber(value: UIApplication.shared.applicationIconBadgeNumber + badge)
-        content.sound = sound ? UNNotificationSound.default : nil
-        
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
-        
-        let identifier = identifier ?? "\(timeInterval)\(body)\(Int.random(min: 0, max: 1000))"
+    public var identificator: String? = nil
+    public var text: String
+    public var title: String? = nil
+    public var badge: Int = 0
+    public var timeInterval: TimeInterval
+    public var soundEnabled: Bool = true
+    public var category: SPLocalNotificationCategory? = nil
+    
+    init(after timeInterval: TimeInterval, text: String) {
+        self.text = text
+        self.timeInterval = timeInterval
+    }
+    
+    func add() {
+        let identificator = self.identificator ?? "\(self.timeInterval)\(self.text)\(Int.random(min: 0, max: 1000))"
         
         let notification = UNNotificationRequest(
-            identifier: identifier,
-            content: content,
-            trigger: trigger
+            identifier: identificator,
+            content: self.content,
+            trigger: self.trigger
         )
         
         let center = UNUserNotificationCenter.current()
@@ -50,37 +54,35 @@ public struct SPLocalNotification {
         }
     }
     
-    public static func add(in date: Date, body: String, title: String? = nil, identifier: String? = nil) {
+    private var content: UNMutableNotificationContent {
+        let content = UNMutableNotificationContent()
+        content.body = self.text
+        content.title = self.title ?? ""
+        content.badge = NSNumber(value: UIApplication.shared.applicationIconBadgeNumber + self.badge)
+        content.sound = self.soundEnabled ? UNNotificationSound.default : nil
+        
+        if let category = self.category {
+            if #available(iOS 12.0, *) {
+                let notificationCategory = UNNotificationCategory(identifier: category.identifier, actions: [], intentIdentifiers: [], hiddenPreviewsBodyPlaceholder: nil, categorySummaryFormat: category.summary, options: [])
+                UNUserNotificationCenter.current().setNotificationCategories([notificationCategory])
+                content.categoryIdentifier = notificationCategory.identifier
+            }
+        }
+        
+        return content
+    }
+    
+    private var trigger: UNTimeIntervalNotificationTrigger {
+        return UNTimeIntervalNotificationTrigger(timeInterval: self.timeInterval, repeats: false)
+    }
+}
 
-        let content = UNMutableNotificationContent()
-        content.body = body
-        content.title = title ?? ""
-        content.badge = NSNumber(value: 1)
-        content.sound = UNNotificationSound.default
-        
-        let triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second,], from: date)
-        let trigger = UNCalendarNotificationTrigger.init(dateMatching: triggerDate, repeats: false)
-        
-        let identifier = identifier ?? "\(date)\(body)\(Int.random(min: 0, max: 1000))"
-        
-        let notification = UNNotificationRequest(
-            identifier: identifier,
-            content: content,
-            trigger: trigger
-        )
-        
-        let center = UNUserNotificationCenter.current()
-        center.add(notification) { (error) in
-            if let error = error {
-                print("SPLocalNotification - \(error)")
-            }
-        }
-    }
+public struct SPLocalNotificationCategory {
     
-    public static func remove(identifier: String) {
-        let center = UNUserNotificationCenter.current()
-        center.removePendingNotificationRequests(withIdentifiers: [identifier])
-    }
+    var identifier: String
+    var summary: String
     
-    private init() {}
+    public var countSymbol: String {
+        return "%u"
+    }
 }
