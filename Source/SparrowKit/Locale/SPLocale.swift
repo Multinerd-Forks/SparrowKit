@@ -26,7 +26,7 @@ public enum SPLocale: String, CaseIterable {
     case ru = "ru"
     case en = "en"
     
-    static var current: SPLocale {
+    static public var current: SPLocale {
         set {
             UserDefaults.standard.set([newValue.languageCode], forKey: "AppleLanguages")
         }
@@ -44,11 +44,11 @@ public enum SPLocale: String, CaseIterable {
         }
     }
     
-    var languageCode: String {
+    public var languageCode: String {
         return self.rawValue
     }
     
-    var describtion: String {
+    public var describtion: String {
         switch self {
         case .en:
             return "English"

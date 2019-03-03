@@ -21,7 +21,7 @@
 
 import UIKit
 
-public class SPPlayCircleButton: UIButton {
+open class SPPlayCircleButton: UIButton {
     
     var audioState: AudioState = AudioState.play {
         didSet {
@@ -56,11 +56,11 @@ public class SPPlayCircleButton: UIButton {
         self.audioState = .play
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override public func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         self.iconView.setBounds(self, withWidthFactor: 0.45, withHeightFactor: 0.45, withCentering: true)
         self.round()

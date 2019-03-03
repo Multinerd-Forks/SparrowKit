@@ -21,9 +21,9 @@
 
 import UIKit
 
-public class SPFormTextTableViewCell: UITableViewCell {
+open class SPFormTextTableViewCell: UITableViewCell {
     
-    override public var accessoryType: UITableViewCell.AccessoryType {
+    override open var accessoryType: UITableViewCell.AccessoryType {
         didSet {
             if self.accessoryType == .disclosureIndicator {
                 self.selectionStyle = .default
@@ -38,7 +38,7 @@ public class SPFormTextTableViewCell: UITableViewCell {
         self.commonInit()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.commonInit()
     }
@@ -48,7 +48,7 @@ public class SPFormTextTableViewCell: UITableViewCell {
         self.accessoryType = .none
     }
     
-    override public func prepareForReuse() {
+    override open func prepareForReuse() {
         super.prepareForReuse()
         self.commonInit()
     }

@@ -22,7 +22,7 @@
 import UIKit
 import StoreKit
 
-struct SPApp {
+public struct SPApp {
     
     public static var udid: String? {
         return UIDevice.current.identifierForVendor?.uuidString

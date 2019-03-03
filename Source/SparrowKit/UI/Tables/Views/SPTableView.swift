@@ -21,7 +21,7 @@
 
 import UIKit
 
-public class SPTableView: UITableView {
+open class SPTableView: UITableView {
     
     private var cacheImages: [(link: String, image: UIImage)] = []
 }
@@ -29,7 +29,7 @@ public class SPTableView: UITableView {
 //MARK: - cache
 extension SPTableView {
     
-    func toCache(link: String, image: UIImage?) {
+    open func toCache(link: String, image: UIImage?) {
         if image == nil {
             return
         }
@@ -39,7 +39,7 @@ extension SPTableView {
         }
     }
     
-    func fromCahce(link: String) -> UIImage? {
+    open func fromCahce(link: String) -> UIImage? {
         
         let cachedData = self.cacheImages.first(where: {
             $0.link == link

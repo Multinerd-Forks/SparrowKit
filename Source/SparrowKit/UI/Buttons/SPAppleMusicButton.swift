@@ -21,7 +21,7 @@
 
 import UIKit
 
-public class SPAppleMusicButton: SPButton {
+open class SPAppleMusicButton: SPButton {
     
     var type: SPSelectionType = .unselect {
         didSet {

@@ -21,7 +21,7 @@
 
 import UIKit
 
-public class SPGradeBlurView: UIView {
+open class SPGradeBlurView: UIView {
     
     internal var gradeView: UIView = UIView()
     internal var blurView: UIView = UIView()
@@ -33,7 +33,7 @@ public class SPGradeBlurView: UIView {
         self.commonInit()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -67,7 +67,7 @@ public class SPGradeBlurView: UIView {
         self.setBlurRadius(blurRaius)
     }
     
-    override public func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         self.gradeView.frame = self.bounds
         self.blurView.frame = self.bounds

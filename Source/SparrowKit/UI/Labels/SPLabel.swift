@@ -21,14 +21,14 @@
 
 import UIKit
 
-public class SPLabel: UILabel {
+open class SPLabel: UILabel {
     
     init() {
         super.init(frame: CGRect.zero)
         self.commonInit()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.commonInit()
     }

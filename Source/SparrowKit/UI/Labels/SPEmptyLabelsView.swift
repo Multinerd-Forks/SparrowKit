@@ -21,7 +21,7 @@
 
 import UIKit
 
-class SPEmptyLabelsView: SPView {
+open class SPEmptyLabelsView: SPView {
     
     let titleLabel = UILabel()
     let subtitleLabel = UILabel()
@@ -32,7 +32,7 @@ class SPEmptyLabelsView: SPView {
         super.init()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -60,7 +60,7 @@ class SPEmptyLabelsView: SPView {
         }
     }
     
-    override func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         
         self.titleLabel.frame.origin = .zero

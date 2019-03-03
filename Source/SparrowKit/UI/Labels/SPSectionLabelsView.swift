@@ -21,11 +21,13 @@
 
 import UIKit
 
-public class SPSectionLabelsView: SPView {
+open class SPSectionLabelsView: SPView {
     
     let titleLabel = SPLabel()
     let subtitleLabel = SPLabel()
     let button = SPButton()
+    
+    var titlesInset: CGFloat = 3
     
     override func commonInit() {
         super.commonInit()
@@ -57,7 +59,7 @@ public class SPSectionLabelsView: SPView {
         self.layout(origin: CGPoint.init(x: x, y: y), width: width)
     }
     
-    override public func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         
         self.titleLabel.frame.set(width: self.frame.width)
@@ -67,7 +69,7 @@ public class SPSectionLabelsView: SPView {
         self.subtitleLabel.frame.set(width: self.frame.width)
         self.subtitleLabel.sizeToFit()
         self.subtitleLabel.frame.origin.x = 0
-        self.subtitleLabel.frame.origin.y = self.titleLabel.frame.bottomY + 3
+        self.subtitleLabel.frame.origin.y = self.titleLabel.frame.bottomY + self.titlesInset
         
         self.button.sizeToFit()
         self.button.frame.bottomX = self.frame.width

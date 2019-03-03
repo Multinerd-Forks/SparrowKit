@@ -21,7 +21,7 @@
 
 import UIKit
 
-public class SPFakeBarView: UIView {
+open class SPFakeBarView: UIView {
     
     public var style: SPNavigationTitleStyle = .small {
         didSet {
@@ -152,7 +152,7 @@ public class SPFakeBarView: UIView {
         self.updateStyle()
     }
     
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         super.layoutSubviews()
         self.setContraints()
     }

@@ -21,7 +21,7 @@
 
 import UIKit
 
-public class SPCollectionView: UICollectionView {
+open class SPCollectionView: UICollectionView {
     
     let layout = UICollectionViewFlowLayout()
     private var cacheImages: [(link: String, image: UIImage)] = []

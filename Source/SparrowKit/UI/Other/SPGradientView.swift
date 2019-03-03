@@ -21,7 +21,7 @@
 
 import UIKit
 
-public class SPGradientView: SPView {
+open class SPGradientView: SPView {
     
     var gradientLayer: CAGradientLayer = CAGradientLayer()
     
@@ -42,7 +42,7 @@ public class SPGradientView: SPView {
         self.gradientLayer.endPoint = self.endColorPosition.point
     }
     
-    override public func layoutSublayers(of layer: CALayer) {
+    override open func layoutSublayers(of layer: CALayer) {
         self.gradientLayer.frame = self.bounds
         super.layoutSublayers(of: layer)
     }

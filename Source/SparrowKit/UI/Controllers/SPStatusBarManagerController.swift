@@ -21,9 +21,9 @@
 
 import UIKit
 
-public class SPStatusBarManagerController: UIViewController {
+open class SPStatusBarManagerController: UIViewController {
     
-    var statusBar: SPStatusBar = .dark {
+    open var statusBar: SPStatusBar = .dark {
         didSet {
             UIView.animate(withDuration: self.statusBarAnimationDuration) { () -> Void in
                 self.setNeedsStatusBarAppearanceUpdate()
@@ -31,7 +31,7 @@ public class SPStatusBarManagerController: UIViewController {
         }
     }
     
-    override public var preferredStatusBarStyle: UIStatusBarStyle {
+    override open var preferredStatusBarStyle: UIStatusBarStyle {
         switch self.statusBar {
         case .dark:
             return .default
@@ -40,7 +40,7 @@ public class SPStatusBarManagerController: UIViewController {
         }
     }
     
-    override public var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
+    override open var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
         return .slide
     }
     
@@ -52,16 +52,16 @@ public class SPStatusBarManagerController: UIViewController {
         }
     }
     
-    override public var prefersStatusBarHidden: Bool {
+    override open var prefersStatusBarHidden: Bool {
         return isHiddenStatusBar
     }
     
     public var statusBarAnimationDuration: TimeInterval = 0.3
 }
 
-public class SPStatusBarManagerTableController: UITableViewController {
+open class SPStatusBarManagerTableController: UITableViewController {
     
-    var statusBar: SPStatusBar = .dark {
+    open var statusBar: SPStatusBar = .dark {
         didSet {            
             UIView.animate(withDuration: 0.3) { () -> Void in
                 self.setNeedsStatusBarAppearanceUpdate()
@@ -69,7 +69,7 @@ public class SPStatusBarManagerTableController: UITableViewController {
         }
     }
     
-    override public var preferredStatusBarStyle: UIStatusBarStyle {
+    override open var preferredStatusBarStyle: UIStatusBarStyle {
         switch self.statusBar {
         case .dark:
             return .default
@@ -78,7 +78,7 @@ public class SPStatusBarManagerTableController: UITableViewController {
         }
     }
     
-    override public var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
+    override open var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
         return .slide
     }
     
@@ -90,14 +90,14 @@ public class SPStatusBarManagerTableController: UITableViewController {
         }
     }
     
-    override public var prefersStatusBarHidden: Bool {
+    override open var prefersStatusBarHidden: Bool {
         return isHiddenStatusBar
     }
 }
 
-public class SPStatusBarManagerNavigationController: UINavigationController {
+open class SPStatusBarManagerNavigationController: UINavigationController {
     
-    var statusBar: SPStatusBar = .dark {
+    open var statusBar: SPStatusBar = .dark {
         didSet {
             UIView.animate(withDuration: 0.3) { () -> Void in
                 self.setNeedsStatusBarAppearanceUpdate()
@@ -105,7 +105,7 @@ public class SPStatusBarManagerNavigationController: UINavigationController {
         }
     }
     
-    override public var preferredStatusBarStyle: UIStatusBarStyle {
+    override open var preferredStatusBarStyle: UIStatusBarStyle {
         switch self.statusBar {
         case .dark:
             return .default
@@ -114,11 +114,11 @@ public class SPStatusBarManagerNavigationController: UINavigationController {
         }
     }
     
-    override public var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
+    override open var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
         return .slide
     }
     
-    public var isHiddenStatusBar: Bool = false {
+    open var isHiddenStatusBar: Bool = false {
         didSet {
             UIView.animate(withDuration: 0.3) { () -> Void in
                 self.setNeedsStatusBarAppearanceUpdate()
@@ -126,7 +126,7 @@ public class SPStatusBarManagerNavigationController: UINavigationController {
         }
     }
     
-    override public var prefersStatusBarHidden: Bool {
+    override open var prefersStatusBarHidden: Bool {
         return isHiddenStatusBar
     }
 }

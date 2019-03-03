@@ -21,7 +21,7 @@
 
 import UIKit
 
-public class SPCircleCloseButton: SPSystemIconButton {
+open class SPCircleCloseButton: SPSystemIconButton {
     
     override init() {
         super.init(type: .close)
@@ -32,7 +32,7 @@ public class SPCircleCloseButton: SPSystemIconButton {
         self.heightIconFactor = 0.36
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -42,7 +42,7 @@ public class SPCircleCloseButton: SPSystemIconButton {
         self.frame.origin.y = y
     }
     
-    override public func sizeToFit() {
+    override open func sizeToFit() {
         super.sizeToFit()
         self.frame.set(width: 30)
         self.frame.set(height: 30)

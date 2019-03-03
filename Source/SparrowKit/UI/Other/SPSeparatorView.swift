@@ -21,7 +21,7 @@
 
 import UIKit
 
-class SPSeparatorView: SPView {
+open class SPSeparatorView: SPView {
     
     private var height: CGFloat {
         return 0.5
@@ -40,7 +40,7 @@ class SPSeparatorView: SPView {
         self.frame.set(height: self.height)
     }
     
-    override func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         self.frame.set(height: self.height)
     }

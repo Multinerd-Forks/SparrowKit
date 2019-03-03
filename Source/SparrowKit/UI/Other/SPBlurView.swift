@@ -21,8 +21,7 @@
 
 import UIKit
 
-@available(iOS 9, *)
-public class SPBlurView: UIVisualEffectView {
+open class SPBlurView: UIVisualEffectView {
     
     private let blurEffect: UIBlurEffect
     open var blurRadius: CGFloat {

@@ -21,7 +21,7 @@
 
 import UIKit
 
-public class SPPageCollectionView: UICollectionView {
+open class SPPageCollectionView: UICollectionView {
     
     var layout = SPCollectionViewLayout()
     private var cacheImages: [(link: String, image: UIImage)] = []

@@ -21,7 +21,7 @@
 
 import UIKit
 
-public class SPTextField: UITextField {
+open class SPTextField: UITextField {
     
     public var textInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0) {
         didSet { setNeedsDisplay() }
@@ -38,7 +38,7 @@ public class SPTextField: UITextField {
         self.commonInit()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.commonInit()
     }

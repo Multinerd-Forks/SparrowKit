@@ -21,7 +21,7 @@
 
 import UIKit
 
-public class SPDownloadingImageView: SPImageView {
+open class SPDownloadingImageView: SPImageView {
     
     let activityIndiactorView = UIActivityIndicatorView.init()
     let gradeView = UIView.init()
@@ -68,7 +68,7 @@ public class SPDownloadingImageView: SPImageView {
         self.gradeView.alpha = 1
     }
     
-    override public func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         self.gradeView.setSuperviewBounds()
         self.activityIndiactorView.center = CGPoint.init(x: self.bounds.midX, y: self.bounds.midY)

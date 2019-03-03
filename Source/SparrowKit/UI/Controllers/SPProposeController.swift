@@ -21,7 +21,7 @@
 
 import UIKit
 
-public class SPProposeController: SPController {
+open class SPProposeController: SPController {
     
     private let data: Data
     internal let areaView = AreaView()
@@ -54,11 +54,11 @@ public class SPProposeController: SPController {
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         
         self.areaView.isHidden = true
@@ -81,7 +81,7 @@ public class SPProposeController: SPController {
         }
     }
     
-    override public func viewDidAppear(_ animated: Bool) {
+    override open func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if !self.isPresent {
             self.present()
@@ -101,7 +101,7 @@ public class SPProposeController: SPController {
            options: .transitionCurlUp)
     }
     
-    override public func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+    override open func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
         let hide = {
             self.view.backgroundColor = UIColor.black.withAlphaComponent(0)
             self.areaView.frame.origin.y = self.view.frame.size.height
@@ -128,7 +128,7 @@ public class SPProposeController: SPController {
         }
     }
     
-    override func updateLayout(with size: CGSize) {
+    open override func updateLayout(with size: CGSize) {
         super.updateLayout(with: size)
         self.areaView.layout(origin: CGPoint.init(x: self.space, y: 0), width: size.width - (self.space * 2))
         self.areaView.frame.origin.y = self.view.frame.size.height - self.areaView.frame.height - (self.bottomSafeArea / 2) - self.space

@@ -21,9 +21,9 @@
 
 import UIKit
 
-public class SPButton: UIButton {
+open class SPButton: UIButton {
     
-    override public func imageRect(forContentRect contentRect: CGRect) -> CGRect {
+    override open func imageRect(forContentRect contentRect: CGRect) -> CGRect {
         if self.title(for: .normal) != nil {
             let inset: CGFloat = 6
             let sideSize = self.frame.height - inset * 2
@@ -34,7 +34,7 @@ public class SPButton: UIButton {
         }
     }
     
-    override public var isHighlighted: Bool{
+    override open var isHighlighted: Bool{
         didSet {
             if self.isHighlighted {
                 self.imageView?.alpha = 0.7
@@ -44,7 +44,7 @@ public class SPButton: UIButton {
         }
     }
     
-    public var gradientView: SPGradientView? {
+    open var gradientView: SPGradientView? {
         didSet {
             self.gradientView?.isUserInteractionEnabled = false
             if self.gradientView?.superview == nil {
@@ -55,7 +55,7 @@ public class SPButton: UIButton {
         }
     }
     
-    public var rounded: Bool = false {
+    open var rounded: Bool = false {
         didSet {
             self.layoutSubviews()
         }
@@ -66,7 +66,7 @@ public class SPButton: UIButton {
         self.commonInit()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.commonInit()
     }
@@ -75,7 +75,7 @@ public class SPButton: UIButton {
         self.adjustsImageWhenHighlighted = false
     }
     
-    override public func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         self.gradientView?.setSuperviewBounds()
         if self.rounded {

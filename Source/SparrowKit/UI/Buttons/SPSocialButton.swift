@@ -21,7 +21,7 @@
 
 import UIKit
 
-public class SPSocialButton: UIButton {
+open class SPSocialButton: UIButton {
     
     let iconView = SPSocialIconView.init()
     var widthIconFactor: CGFloat = 0.5
@@ -33,7 +33,7 @@ public class SPSocialButton: UIButton {
         }
     }
     
-    override public var isHighlighted: Bool {
+    override open var isHighlighted: Bool {
         didSet {
             if isHighlighted {
                 self.iconView.color = self.iconView.color.withAlphaComponent(0.7)
@@ -43,7 +43,7 @@ public class SPSocialButton: UIButton {
         }
     }
     
-    override public var isEnabled: Bool {
+    override open var isEnabled: Bool {
         didSet {
             if isEnabled {
                 self.alpha = 1
@@ -68,7 +68,7 @@ public class SPSocialButton: UIButton {
         }
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -79,7 +79,7 @@ public class SPSocialButton: UIButton {
         self.iconView.color = SPNativeColors.white
     }
     
-    override public func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         self.iconView.setBounds(self, withWidthFactor: self.widthIconFactor, withHeightFactor: self.heightIconFactor, withCentering: true)
         self.round()

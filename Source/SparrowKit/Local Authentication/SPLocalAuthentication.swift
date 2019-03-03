@@ -22,7 +22,7 @@
 import UIKit
 import LocalAuthentication
 
-struct SPLocalAuthentication {
+public struct SPLocalAuthentication {
     
     public static var isEnable: Bool {
         let context = LAContext()

@@ -21,7 +21,7 @@
 
 import UIKit
 
-public class SPFooterActionsView: SPView {
+open class SPFooterActionsView: SPView {
     
     var sectionLabels = SPSectionLabelsView()
     private var buttons: [SPFooterActionButton] = []
@@ -63,7 +63,7 @@ public class SPFooterActionsView: SPView {
         self.layout(origin: CGPoint.init(x: 19, y: y), width: width)
     }
     
-    override public func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         
         self.sectionLabels.layout(origin: CGPoint.zero, width: self.frame.width)

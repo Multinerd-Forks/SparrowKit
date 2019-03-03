@@ -21,7 +21,7 @@
 
 import UIKit
 
-public class SPCollectionViewCell: UICollectionViewCell {
+open class SPCollectionViewCell: UICollectionViewCell {
     
     var currentIndexPath: IndexPath?
     
@@ -30,14 +30,14 @@ public class SPCollectionViewCell: UICollectionViewCell {
         self.commonInit()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.commonInit()
     }
     
     internal func commonInit() {}
     
-    public override func prepareForReuse() {
+    open override func prepareForReuse() {
         super.prepareForReuse()
         self.currentIndexPath = nil
     }
