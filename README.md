@@ -1,3 +1,3 @@
 # SparrowKit
 
-Extenshion and structs for simple coding.
+Simplify iOS programming. Extensions and structs for develop.
