@@ -21,29 +21,26 @@
 
 import UIKit
 
-class SPViber {
+class SPImagesCollectionView: SPCollectionView {
     
-    static var isSetApp: Bool {
-        return UIApplication.shared.canOpenURL(URL(string: "viber://forward?text=test")!)
+    private let imageCellIdentificator: String = "imageCellIdentificator"
+    
+    override func commonInit() {
+        super.commonInit()
+        self.layout.scrollDirection = .horizontal
+        self.register(SPImageCollectionViewCell.self, forCellWithReuseIdentifier: self.imageCellIdentificator)
     }
     
-    static func share(text: String, complection: @escaping (_ isOpened: Bool)->() = {_ in }) {
-        let urlStringEncoded = text.addingPercentEncoding( withAllowedCharacters: .urlHostAllowed)
-        let urlOptional = URL(string: "viber://forward?text=\(urlStringEncoded ?? "")")
-        if let url = urlOptional {
-            if UIApplication.shared.canOpenURL(url) {
-                UIApplication.shared.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: complection)
-            } else {
-                complection(false)
-            }
-        } else {
-            complection(false)
-        }
+    func layout(y: CGFloat, cellSize: CGSize, space: CGFloat, lines: Int) {
+        self.layout.minimumLineSpacing = space
+        self.layout.minimumInteritemSpacing = self.layout.minimumLineSpacing
+        self.frame.set(width: self.superview?.frame.width ?? 0)
+        self.frame.set(width: self.superview?.frame.width ?? 0, height: cellSize.height * CGFloat(lines) + self.layout.minimumInteritemSpacing * CGFloat(lines - 1))
+        self.frame.origin = CGPoint.init(x: 0, y: y)
+        self.layout.itemSize = cellSize
     }
     
-    private init() {}
-}
-
-fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
-	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
+    func dequeueImageCell(indexPath: IndexPath) -> SPImageCollectionViewCell {
+        return self.dequeueReusableCell(withReuseIdentifier: self.imageCellIdentificator, for: indexPath) as! SPImageCollectionViewCell
+    }
 }

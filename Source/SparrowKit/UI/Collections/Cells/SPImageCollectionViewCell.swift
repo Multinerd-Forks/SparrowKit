@@ -21,29 +21,33 @@
 
 import UIKit
 
-class SPViber {
+class SPImageCollectionViewCell: SPCollectionViewCell {
     
-    static var isSetApp: Bool {
-        return UIApplication.shared.canOpenURL(URL(string: "viber://forward?text=test")!)
+    let imageView = SPDownloadingImageView()
+    
+    override func commonInit() {
+        super.commonInit()
+        
+        self.addSubview(self.imageView)
+        SPConstraints.setEqualSizeSuperview(for: self.imageView)
+        
+        self.configure()
     }
     
-    static func share(text: String, complection: @escaping (_ isOpened: Bool)->() = {_ in }) {
-        let urlStringEncoded = text.addingPercentEncoding( withAllowedCharacters: .urlHostAllowed)
-        let urlOptional = URL(string: "viber://forward?text=\(urlStringEncoded ?? "")")
-        if let url = urlOptional {
-            if UIApplication.shared.canOpenURL(url) {
-                UIApplication.shared.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: complection)
-            } else {
-                complection(false)
-            }
-        } else {
-            complection(false)
-        }
+    private func configure() {
+        self.currentIndexPath = nil
+        self.imageView.removeImage()
+        self.imageView.contentMode = .scaleAspectFill
+        self.imageView.layer.masksToBounds = true
     }
     
-    private init() {}
-}
-
-fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
-	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.configure()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.imageView.layer.cornerRadius = 12
+    }
 }
